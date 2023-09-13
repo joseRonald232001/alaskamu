@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
-import mu from '../pictures/mu.mp4'
+import mu from "../pictures/mu.mp4";
+import picture3 from "../pictures/picture3.jpg";
 const Hom = () => {
   const videoRef = useRef(null);
   function handleEnded() {
@@ -18,9 +19,19 @@ const Hom = () => {
         >
           <source src={mu} type="video/mp4" />
         </video>
-        <article>
-          ¡Libera tus habilidades en el campo de batalla de{" "}
-          <span className="text-emerald-400">AlaskaMu! </span>
+
+        <article className="w-full text-white text-center p-4">
+          <h2 className="text-emerald-400 font-redrose font-bold text-base">
+            AlaskaMu{" "}
+          </h2>
+          <img
+            className="absolute -z-10 w-full opacity-10"
+            src={picture3}
+            alt="img"
+          />
+          <h3 className="font-bangers text-3xl ">SERVIDOR PERSONALIZADO</h3>
+
+          <p className="text-sm">¡Libera tus habilidades en el campo de batalla!</p>
         </article>
       </section>
     </>

@@ -7,6 +7,10 @@ export default {
   theme: {
     fontFamily:{
       'blackOps':['Black Ops One', 'cursive'],
+      'garamond':['EB Garamond', 'serif'],
+      'oswald':[ 'Oswald', 'sans-serif'],
+      'redrose':['Red Rose', 'cursive'],
+        'bangers':['Bangers', 'cursive']
     },
     extend: {},
   },

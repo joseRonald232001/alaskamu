@@ -15,11 +15,10 @@ const NavBar = () => {
       <header className="absolute px-2 py-1 w-full">
         <nav className="flex items-center ">
           <Link to={"/"}>
-            <h1 className="font-blackOps text-white text-xl">
-              AlaskaMuu
+            <h1 className="font-blackOps text-white text-2xl">
+              AlaskaMu
             </h1>
           </Link>
-
           <button className="text-2xl ml-auto">
           <FontAwesomeIcon icon={faBars} style={{color: "#fafafa",}} />
           </button>
