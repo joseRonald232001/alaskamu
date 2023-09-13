@@ -19,11 +19,11 @@ const NavBar = () => {
               AlaskaMu
             </h1>
           </Link>
-          <button className="text-2xl ml-auto">
+          <button className="text-2xl ml-auto md:hidden">
           <FontAwesomeIcon icon={faBars} style={{color: "#fafafa",}} />
           </button>
 
-          <div className="text-white ml-auto hidden">
+          <div className="text-white ml-auto hidden md:block">
             {nav.map((page) => (
               <Link key={page.title} to={page.to}>
                 <ul>
