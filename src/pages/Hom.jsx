@@ -1,7 +1,10 @@
 import React, { useRef } from "react";
 import mu from "../pictures/mu.mp4";
+import mufont from '../pictures/mufont.jpg'
+import picture2 from '../pictures/picture2.png'
 import picture3 from "../pictures/picture3.jpg";
 import { Link } from "react-router-dom";
+
 const Hom = () => {
   const videoRef = useRef(null);
   function handleEnded() {
@@ -10,7 +13,7 @@ const Hom = () => {
 
   return (
     <>
-      <section className="w-full">
+      <section className="w-full h-[80vh] ">
         <video
           className="w-full shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
           autoPlay
@@ -43,6 +46,18 @@ const Hom = () => {
           </button>
           </div>
         </article>
+      </section>
+
+      <section className="w-full  text-white relative flex items-center">
+        <img 
+        className="w-full absolute top-0 opacity-30 -z-10"
+        src={mufont} alt="" />
+        <div className="w-1/2 z-10 ">
+            <img src={picture2} className="w-[80%]" alt="" />
+        </div>
+        <div className="w-1/2 text-sm text-center">
+        <p>¡Forma parte de una comunidad de jugadores apasionados en el nuevo servidor de <span className="text-cyan-600">AlaskMu</span>!</p>
+        </div>
       </section>
     </>
   );
