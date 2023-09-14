@@ -7,6 +7,7 @@ import multijugador from '../pictures/multijugador.png'
 import alaskalogo from '../pictures/alaskalogo.png'
 import { Link } from "react-router-dom";
 import CartImage from "../components/CartImage";
+import Footer from "../components/Footer";
 
 const Hom = () => {
   const videoRef = useRef(null);
@@ -70,17 +71,19 @@ const Hom = () => {
         </article>
       </section>
 
-      <section className="w-fulltext-white  m-auto max-w-[2020px] p-4">
-        <h3 className="font-redrose text-emerald-400 text-lg">¡La aventura no para!</h3>
-        <div className="text-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2 text-center  m-auto ">
+      <section className="w-fulltext-white  my-7 m-auto max-w-[2020px] p-4">
+        <h3 className="font-redrose pb-2 text-emerald-400 text-xl lg:text-2xl">¡La aventura no para!</h3>
+        <div className="text-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2 text-center w-fit  m-auto ">
 
           <CartImage url="https://wiki.infinitymu.net/images/1/1d/Bk-CS-skill-1.gif" frase='Grandes batallas' />
           <CartImage url="https://media.tenor.com/9aBOZRuVBnMAAAAC/mu-online-swell-life.gif" frase='Domina el juego' />
           <CartImage url="https://wiki.infinitymu.net/images/d/d6/Mg-power-slash.gif" frase='Eventos imperdibles' />
           <CartImage url="https://media.tenor.com/bOb2BhRmO9kAAAAC/mu-online-bk.gif" frase=' Diversion' />
         </div>
-
       </section>
+
+
+      <Footer/>
     </>
   );
 };
