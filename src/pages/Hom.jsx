@@ -3,6 +3,7 @@ import mu from "../pictures/mu.mp4";
 import mufont from '../pictures/mufont.jpg'
 import picture2 from '../pictures/picture2.png'
 import picture3 from "../pictures/picture3.jpg";
+import multijugador from '../pictures/multijugador.png'
 import alaskalogo from '../pictures/alaskalogo.png'
 import { Link } from "react-router-dom";
 
@@ -47,11 +48,12 @@ const Hom = () => {
           </button>
           </div>
         </article>
+            <img className="m-auto relative -top-10  -rotate-12 rounded-md md:hidden" src={multijugador} alt="" />
       </section>
 
-      <section className="w-full  text-white relative max-w-[2020px] m-auto ">
+      <section className="w-full  text-white relative max-w-[2020px] m-auto shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] ">
         <img 
-        className="w-full absolute top-0 opacity-30 -z-10"
+        className="w-full absolute top-0 opacity-20 -z-10"
         src={mufont} alt="" />
         <article className="flex items-center px-2">
 
@@ -59,17 +61,35 @@ const Hom = () => {
             <img src={picture2} className="w-[80%]" alt="" />
         </div>
         <div className="w-1/2  text-sm text-center  font-garamond md:text-lg lg:text-2xl lg:p-10">
-        <p>¡ Forma parte de una comunidad de jugadores apasionados en el  servidor de <span className="text-cyan-600">AlaskMu</span> !</p>
+        <p>¡ Forma parte de una comunidad de jugadores apasionados en el  servidor de <span className="text-cyan-600">AlaskaMu</span> !</p>
         <img className="w-1/2 m-auto" src={alaskalogo} alt="" />
+   
         </div>
      
         </article>
       </section>
 
-      <section>
+      <section className="w-fulltext-white  m-auto max-w-[2020px] p-4">
+        <h3 className="font-redrose  text-lg">¡La aventura no para!</h3>
+        <div className="grid grid-cols-2 gap-2 text-center borde lg:grid-cols-3">
+          <div>
+          <img src="https://wiki.infinitymu.net/images/1/1d/Bk-CS-skill-1.gif" alt="" />
+         <p> Grandes batallas</p>
+          </div>
+          <div>
+          <img src="https://media.tenor.com/9aBOZRuVBnMAAAAC/mu-online-swell-life.gif" alt="" />
+           Domina el juego
+          </div>
+          <div>
+          <img src="https://wiki.infinitymu.net/images/d/d6/Mg-power-slash.gif" alt="" />
+            Eventos imperdibles
+          </div>
+          <div>
+          <img src="https://media.tenor.com/bOb2BhRmO9kAAAAC/mu-online-bk.gif" alt="" />
+            Diversion
+          </div>
+        </div>
 
-        <br />
-        <br />
       </section>
     </>
   );
