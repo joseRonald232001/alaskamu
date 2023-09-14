@@ -7,16 +7,17 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const nav = [
-    { title: "Eventos", to:"/" },
-    {title:"Tienda" ,to:"/"},
+    { title: "Eventos", to:"/events"},
+    {title:"Tienda" ,to:"/store"},
     {title:"Registro" ,to:"/"},
     {title:"Mi perfil" ,to:"/"}
   ];
 
+  console.log(nav[0].to)
   return (
     <>
       <header className=" relative max-w-[2020px]">
-        <nav className="flex items-center absolute px-2 py-1 lg:p-3 w-full  m-auto ">
+        <nav className="flex z-20 items-center absolute px-2 py-1 lg:p-3 w-full  m-auto ">
           <Link to={"/"}>
             <h1 className="font-blackOps text-white text-2xl md:text-3xl">
               AlaskaMu

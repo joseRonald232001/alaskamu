@@ -3,6 +3,7 @@ import "./App.css";
 
 import NavBar from "./components/NavBar";
 import Hom from "./pages/Hom";
+import Events from "./pages/Events";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <>
       <Routes>
         <Route path="/" element={<Hom/>}/>
+        <Route path="/events" element={<Events/>} />
       </Routes>
       </>
     </HashRouter>
