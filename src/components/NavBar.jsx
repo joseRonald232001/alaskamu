@@ -9,8 +9,8 @@ const NavBar = () => {
   const nav = [
     { title: "Eventos", to:"/events"},
     {title:"Tienda" ,to:"/store"},
-    {title:"Registro" ,to:"/"},
-    {title:"Mi perfil" ,to:"/"}
+    {title:"Registro" ,to:"/login"},
+    {title:"Mi perfil" ,to:"/myprofile"}
   ];
 
   console.log(nav[0].to)

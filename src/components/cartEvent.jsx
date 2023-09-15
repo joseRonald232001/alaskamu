@@ -2,17 +2,19 @@ import React from "react";
 import eventFormat from "../pictures/eventFormat.png";
 
 const CartEvent = ({
-  key,
   imgEvent,
   nameEvent,
   deleteEvent,
   eventToUpdate,
   description,
+  events,
+  setIsActive,
+  isActive
 }) => {
   return (
     <article
-      className="w-[100%] font-garamond  h-[600px] text-white m-auto relative "
-      key={key}
+      className="w-[100%] md:w-[390px] font-garamond  h-[600px] text-white m-auto relative "
+  
     >
       <img className="absolute w-full h-full -z-10" src={eventFormat} alt="" />
       <div className="w-full  p-2 text-center">
@@ -23,14 +25,14 @@ const CartEvent = ({
       <div className="absolute bottom-3 right-1/4 ">
         <button
           className="bg-red-600 px-3 rounded-md "
-          onClick={() => deleteEvent(evento.id)}
+          onClick={() => deleteEvent(events.id)}
           type="button"
         >
           eliminar
         </button>
         <button
           className="bg-slate-300 px-3 text-black rounded-md ml-2 "
-          onClick={() => eventToUpdate(evento)}
+          onClick={() => {eventToUpdate(events),setIsActive(!isActive)}}
           type="button"
         >
           actualizar

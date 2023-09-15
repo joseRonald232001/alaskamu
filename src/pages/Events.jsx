@@ -9,7 +9,6 @@ const Events = () => {
   const { register, handleSubmit, reset } = useForm();
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isActive, setIsActive] = useState(false);
-  const permiss = useSelector((state) => state.setPermiss);
   const dispatch = useDispatch();
   const {
     newPost,
@@ -45,11 +44,14 @@ const Events = () => {
     deleteData(`http://localhost:3000/alaskamu/events/${id}`);
   };
   const sendRegister = (data) => {
+    console.log(data)
     if (selectedEvent) {
       return updateEvent(data);
     } else {
       addEvent(data);
-    }
+    }  
+      setIsActive(!isActive);
+  
   };
 
   const eventToUpdate = (data) => {
@@ -60,81 +62,116 @@ const Events = () => {
     setSelectedEvent(data.id);
   };
 
+  const cancelEvent=()=>{
+    setIsActive(!isActive)
+    defaulValues()
+  }
+
   useEffect(() => {
     getAllEvents();
   }, []);
 
+  
+
   dispatch(setEvents(events));
+
 
   return (
     <>
-      <section className="w-full ">
+      <section className="w-full  ">
         <img
-          className="absolute -z-20 w-full opacity-50  "
+          className="absolute -z-20 w-full opacity-50 shadow-[0px_20px_34px_10px_#000000]  "
           src={picture3}
           alt=""
         />
-        <div className="pt-[23vh]"></div>
+        <div className="pt-[23vh] "></div>
+      
 
-        <div className="container m-auto">
-          <button
-            style={{ display: permiss ? "block" : "none" }}
-            onClick={() => setIsActive(!isActive)}
-            className="bg-slate-500 p-1"
+        <button
+          onClick={() => setIsActive(!isActive)}
+          className="mx-2 absolute top-[15vh] bg-lime-500 rounded-md p-1"
+        >
+          Agregar evento
+        </button>
+        {isActive && (
+
+          <form
+            className="absolute z-20 top-0 right-0 bottom-0 left-0 h-fit  w-[90%] bg-stone-600 rounded-md px-2 py-5 max-w-md m-auto"
+            onSubmit={handleSubmit(sendRegister)}
           >
-            agregar evento
-          </button>
-
-          <section>
-            {isActive && (
-              <form onSubmit={handleSubmit(sendRegister)}>
-                <div>
-                  <label htmlFor="nameEvent">nombre de evento</label>
-                  <input type="text" {...register("nameEvent")} />
-                </div>
-
-                <div>
-                  <label htmlFor="dateInit">fecha de inicio</label>
-                  <input
-                    type="text"
-                    {...register("dateInit")}
-                    placeholder="año-mes-dia"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="dateFinish">fecha de finalizacion</label>
-                  <input
-                    type="text"
-                    placeholder="año-mes-dia"
-                    {...register("dateFinish")}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="descriptionEvent">
-                    descripcion del evento
-                  </label>
-                  <input type="text" {...register("descriptionEvent")} />
-                </div>
-                <div>
-                  <label htmlFor="imgEvent">imagen de evento</label>
-                  <input type="text" {...register("imgEvent")} />
-                </div>
-                <button>crear evento</button>
-              </form>
-            )}
-          </section>
-        </div>
-
+            <div>
+              <input
+                className="w-full p-2 outline-none my-1 rounded-md"
+                placeholder="Nombre de evento"
+                type="text"
+                {...register("nameEvent")}
+              />
+            </div>
+            <div>
+              <input
+                className="w-full p-2 outline-none my-1 rounded-md"
+                type="text"
+                {...register("dateInit")}
+                placeholder="fecha de inicio"
+              />
+            </div>
+            <div>
+              <input
+                className="w-full p-2 outline-none my-1 rounded-md"
+                type="text"
+                placeholder="fecha de finalizacion"
+                {...register("dateFinish")}
+              />
+            </div>
+            <div>
+              <input
+                className="w-full p-2 outline-none my-1 rounded-md"
+                placeholder="Descripcion del Evento"
+                type="text"
+                {...register("descriptionEvent")}
+              />
+            </div>
+            <div>
+              <input
+                className="w-full p-2 outline-none my-1 rounded-md"
+                placeholder="imagen"
+                type="text"
+                {...register("imgEvent")}
+              />
+            </div>
+            <button
+            className="bg-lime-500 w-full p-2  my-1 rounded-md">
+             { selectedEvent?"actualizar": "crear evento"}
+            </button>
+            <button
+            type="button"
+              onClick={() => cancelEvent()}
+              className="bg-emerald-600 w-full p-2  my-1 rounded-md"
+            >
+              cancelar
+            </button>
+        
+          </form>
+        )}  
       </section>
-      <section>
-      <div className="w-full m-auto ">
-            {events.map((event) => (
-             <CartEvent key={event.id} nameEvent={event.nameEvent} imgEvent={event.imgEvent} description={event.descriptionEvent} />
+      
+      <section className=" m-auto  ">
+          <div className=" w-fit max-w-[1200px] m-auto md:grid md:grid-cols-2 lg:gap-15 xl:grid-cols-3 gap-5  ">
+            {events.map((events) => (
+              <CartEvent
+                key={events.id}
+                nameEvent={events.nameEvent}
+                imgEvent={events.imgEvent}
+                description={events.descriptionEvent}
+                deleteEvent={deleteEvent}
+                eventToUpdate={eventToUpdate}
+                setIsActive={setIsActive}
+                events={events}
+                isActive={isActive}
+              />
             ))}
-       </div>
-      </section>
+          </div>
+        </section>
     </>
   );
 };
